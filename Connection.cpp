@@ -6,13 +6,15 @@
 Connection::Connection() {}
 
 Connection::Connection(std::string host, std::string user, std::string password) {
-
-
-
+	connect(host, user, password);
 
 }
 
 bool Connection::connect(std::string host, std::string user, std::string password) {
+	/**
+	 * Based on https://www.libssh2.org/examples/ssh2.html
+	 */
+
 	unsigned long hostaddr;
 	int rc, sock, i, auth_pw = 0;
 	struct sockaddr_in sin;

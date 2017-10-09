@@ -1,12 +1,12 @@
 #include <iostream>
 #include <unistd.h>
 #include <string>
+#include "Connection.h"
 
 using namespace std;
 
 string getPassword()
 {
-	char val[10000];
 	string out = getpass("Password: ");
 	return out;
 }
@@ -14,6 +14,10 @@ string getPassword()
 
 int main()
 {
+	Connection c;
+	string p = getPassword();
+	c.connect("ssh.phas.ubc.ca", "dberard", p);
+
 	
 	return 0;
 }
